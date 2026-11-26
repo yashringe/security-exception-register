@@ -1,0 +1,25 @@
+{
+  "kri": {
+    "asOf": "2026-12-01",
+    "openByResidualRating": {"LOW": 3, "MEDIUM": 4, "HIGH": 3, "CRITICAL": 1},
+    "totalOpen": 11,
+    "expiringSoon": 3,
+    "indicators": [
+      {"id": "expired_not_remediated", "name": "Expired exceptions not closed or renewed", "value": 2, "unit": "count", "status": "AMBER", "amberFrom": 1, "redFrom": 3},
+      {"id": "critical_accepted", "name": "Approved exceptions with CRITICAL residual risk", "value": 1, "unit": "count", "status": "AMBER", "amberFrom": 1, "redFrom": 3},
+      {"id": "weak_controls_pct", "name": "Approved exceptions without an effective (tested) control", "value": 57.1, "unit": "percent", "status": "RED", "amberFrom": 25, "redFrom": 50},
+      {"id": "stale_approvals", "name": "Requests waiting for a decision longer than 10 days", "value": 1, "unit": "count", "status": "GREEN", "amberFrom": 2, "redFrom": 5},
+      {"id": "repeat_renewals", "name": "Open exceptions renewed two or more times", "value": 1, "unit": "count", "status": "AMBER", "amberFrom": 1, "redFrom": 3}
+    ]
+  },
+  "exceptions": [
+    {"title": "Vendor VPN account shared by three engineers", "assetId": "ACC-VND-113", "owner": "olivia", "requester": "alice", "residualRating": "CRITICAL", "status": "APPROVED", "requestedExpiry": "2026-12-08", "renewalCount": 0, "submittedAt": "2026-11-20T10:00:00Z"},
+    {"title": "TLS 1.0 on internal reporting endpoint", "assetId": "APP-RPT-019", "owner": "olivia", "requester": "alice", "residualRating": "LOW", "status": "APPROVED", "requestedExpiry": "2026-12-11", "renewalCount": 0, "submittedAt": "2026-11-02T10:00:00Z"},
+    {"title": "Admin console still without MFA", "assetId": "APP-ADM-007", "owner": "olivia", "requester": "alice", "residualRating": "HIGH", "status": "APPROVED", "requestedExpiry": "2026-12-13", "renewalCount": 2, "submittedAt": "2026-11-15T10:00:00Z"},
+    {"title": "Legacy settlement server cannot take OS patch", "assetId": "SRV-LEG-042", "owner": "olivia", "requester": "alice", "residualRating": "MEDIUM", "status": "APPROVED", "requestedExpiry": "2027-01-30", "renewalCount": 0, "submittedAt": "2026-11-01T10:00:00Z"},
+    {"title": "Logs of batch cluster not sent to SIEM", "assetId": "CLU-BAT-002", "owner": "olivia", "requester": "alice", "residualRating": "MEDIUM", "status": "EXPIRED", "requestedExpiry": "2026-11-20", "renewalCount": 1, "submittedAt": "2026-08-12T10:00:00Z"},
+    {"title": "Hard-coded service password in nightly script", "assetId": "JOB-NGT-017", "owner": "olivia", "requester": "alice", "residualRating": "HIGH", "status": "EXPIRED", "requestedExpiry": "2026-11-27", "renewalCount": 0, "submittedAt": "2026-09-01T10:00:00Z"},
+    {"title": "Unsupported Java 8 runtime on pricing tool", "assetId": "APP-PRC-031", "owner": "olivia", "requester": "alice", "residualRating": "MEDIUM", "status": "SUBMITTED", "requestedExpiry": "2027-02-19", "renewalCount": 0, "submittedAt": "2026-11-17T08:30:00Z"},
+    {"title": "Firewall rule review overdue for DMZ", "assetId": "NET-DMZ-001", "owner": "olivia", "requester": "alice", "residualRating": "LOW", "status": "SUBMITTED", "requestedExpiry": "2027-03-01", "renewalCount": 0, "submittedAt": "2026-11-28T08:30:00Z"}
+  ]
+}

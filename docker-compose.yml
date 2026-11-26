@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: register
+      POSTGRES_USER: register
+      POSTGRES_PASSWORD: register
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U register -d register"]
+      interval: 5s
+      retries: 10
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/register
+      DB_USER: register
+      DB_PASSWORD: register
+      DEMO_USERS_ENABLED: "true"
+      DEMO_PASSWORD: demo
+    ports:
+      - "8080:8080"
+
+volumes:
+  db-data:

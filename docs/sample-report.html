@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security Exception KRIs – 2026-12-01</title>
+<style>
+  :root { --ink:#1d2433; --muted:#5b6476; --line:#e3e6ec; --bg:#f6f7f9; --card:#fff; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink);
+         background:var(--bg); }
+  main { max-width:1040px; margin:0 auto; padding:28px 20px 48px; }
+  h1 { font-size:24px; margin:0 0 4px; } h2 { font-size:17px; margin:0 0 12px; }
+  .sub { color:var(--muted); margin:0 0 22px; }
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-bottom:18px; }
+  .tile, .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px; }
+  .tile b { display:block; font-size:30px; font-variant-numeric:tabular-nums; }
+  .tile span { color:var(--muted); font-size:13px; }
+  .grid { display:grid; grid-template-columns:1.4fr 1fr; gap:14px; margin-bottom:14px; align-items:start; }
+  @media (max-width:820px) { .grid { grid-template-columns:1fr; } }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th, td { text-align:left; padding:7px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); font-weight:600; }
+  td.r { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .muted { color:var(--muted); font-size:12.5px; }
+  .rag, .pill { color:#fff; border-radius:999px; padding:2px 9px; font-size:12px; font-weight:600; }
+  .bars { width:100%; height:auto; } .bars .lbl { font-size:17px; fill:var(--muted); }
+  .bars .num { font-size:17px; font-weight:600; fill:var(--ink); }
+  .card + .card { margin-top:14px; } .empty { color:var(--muted); margin:0; }
+  footer { color:var(--muted); font-size:12px; margin-top:22px; }
+</style></head>
+<body><main>
+<h1>Security exception register – key risk indicators</h1>
+<p class="sub">As of 2026-12-01 · generated 2026-11-26 00:22 UTC</p>
+
+<div class="tiles">
+  <div class="tile"><b>11</b><span>open exceptions (submitted, approved, expired)</span></div>
+  <div class="tile"><b>3</b><span>approved, expiring within 30 days</span></div>
+  <div class="tile"><b>1</b><span>KRIs in red</span></div>
+</div>
+
+<div class="grid">
+  <section class="card"><h2>Indicators</h2>
+    <table><thead><tr><th>Indicator</th><th class="r">Value</th><th>Status</th><th>Thresholds</th></tr></thead>
+    <tbody><tr><td>Expired exceptions not closed or renewed</td><td class="r">2</td><td><span class="rag" style="background:#b7791f">AMBER</span></td><td class="muted">amber from 1, red from 3</td></tr><tr><td>Approved exceptions with CRITICAL residual risk</td><td class="r">1</td><td><span class="rag" style="background:#b7791f">AMBER</span></td><td class="muted">amber from 1, red from 3</td></tr><tr><td>Approved exceptions without an effective (tested) control</td><td class="r">57.1 %</td><td><span class="rag" style="background:#b42318">RED</span></td><td class="muted">amber from 25, red from 50</td></tr><tr><td>Requests waiting for a decision longer than 10 days</td><td class="r">1</td><td><span class="rag" style="background:#2e7d4f">GREEN</span></td><td class="muted">amber from 2, red from 5</td></tr><tr><td>Open exceptions renewed two or more times</td><td class="r">1</td><td><span class="rag" style="background:#b7791f">AMBER</span></td><td class="muted">amber from 1, red from 3</td></tr></tbody></table></section>
+  <section class="card"><h2>Open exceptions by residual rating</h2><svg viewBox="0 0 520 168" role="img" aria-label="Open exceptions by residual rating" class="bars"><text x="0" y="20.400000000000002" class="lbl">Low</text><rect x="90" y="0" width="292.5" height="30" rx="3" fill="#4c9a6a"/><text x="390.5" y="20.400000000000002" class="num">3</text><text x="0" y="62.400000000000006" class="lbl">Medium</text><rect x="90" y="42" width="390.0" height="30" rx="3" fill="#d4a72c"/><text x="488.0" y="62.400000000000006" class="num">4</text><text x="0" y="104.4" class="lbl">High</text><rect x="90" y="84" width="292.5" height="30" rx="3" fill="#d9822b"/><text x="390.5" y="104.4" class="num">3</text><text x="0" y="146.4" class="lbl">Critical</text><rect x="90" y="126" width="97.5" height="30" rx="3" fill="#c2412d"/><text x="195.5" y="146.4" class="num">1</text></svg></section>
+</div>
+
+<section class="card"><h2>Expiring in the next 14 days – remind the owners</h2>
+<table><thead><tr><th>Exception</th><th>Asset</th><th>Owner</th><th>Residual</th><th>Expires</th><th>Days left</th></tr></thead><tbody><tr><td>Vendor VPN account shared by three engineers</td><td>ACC-VND-113</td><td>olivia</td><td><span class="pill" style="background:#c2412d">CRITICAL</span></td><td>2026-12-08</td><td>7</td></tr><tr><td>TLS 1.0 on internal reporting endpoint</td><td>APP-RPT-019</td><td>olivia</td><td><span class="pill" style="background:#4c9a6a">LOW</span></td><td>2026-12-11</td><td>10</td></tr><tr><td>Admin console still without MFA</td><td>APP-ADM-007</td><td>olivia</td><td><span class="pill" style="background:#d9822b">HIGH</span></td><td>2026-12-13</td><td>12</td></tr></tbody></table></section>
+<section class="card"><h2>Expired, gap not closed</h2>
+<table><thead><tr><th>Exception</th><th>Asset</th><th>Owner</th><th>Residual</th><th>Expired on</th><th>Renewals</th></tr></thead><tbody><tr><td>Logs of batch cluster not sent to SIEM</td><td>CLU-BAT-002</td><td>olivia</td><td><span class="pill" style="background:#d4a72c">MEDIUM</span></td><td>2026-11-20</td><td>1</td></tr><tr><td>Hard-coded service password in nightly script</td><td>JOB-NGT-017</td><td>olivia</td><td><span class="pill" style="background:#d9822b">HIGH</span></td><td>2026-11-27</td><td>0</td></tr></tbody></table></section>
+<section class="card"><h2>Waiting for a risk decision</h2>
+<table><thead><tr><th>Exception</th><th>Asset</th><th>Owner</th><th>Residual</th><th>Requester</th><th>Days waiting</th></tr></thead><tbody><tr><td>Unsupported Java 8 runtime on pricing tool</td><td>APP-PRC-031</td><td>olivia</td><td><span class="pill" style="background:#d4a72c">MEDIUM</span></td><td>alice</td><td>14</td></tr><tr><td>Firewall rule review overdue for DMZ</td><td>NET-DMZ-001</td><td>olivia</td><td><span class="pill" style="background:#4c9a6a">LOW</span></td><td>alice</td><td>3</td></tr></tbody></table></section>
+
+<footer>Thresholds are demo values; set them from your risk appetite statement.
+Source: security-exception-register /api/kri and /api/exceptions.</footer>
+</main></body></html>

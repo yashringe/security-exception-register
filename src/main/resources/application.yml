@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: security-exception-register
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/register}
+    username: ${DB_USER:register}
+    password: ${DB_PASSWORD:register}
+  mvc:
+    problemdetails:
+      enabled: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+register:
+  # Daily job that marks approved exceptions as EXPIRED once their date has passed (UTC).
+  expiry-cron: "0 5 0 * * *"
+  # Demo users for local runs. Replace with your identity provider (OIDC/JWT) in a real setup.
+  demo-users:
+    enabled: ${DEMO_USERS_ENABLED:true}
+    password: ${DEMO_PASSWORD:demo}
