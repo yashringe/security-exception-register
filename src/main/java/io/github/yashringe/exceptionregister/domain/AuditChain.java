@@ -8,6 +8,7 @@ import java.util.HexFormat;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.time.temporal.ChronoUnit;
 
 /**
  * Builds and checks the hash chain of the audit trail.
@@ -28,9 +29,17 @@ public final class AuditChain {
                                   Instant at, String details) {
         long sequence = previous == null ? 1 : previous.sequence() + 1;
         String previousHash = previous == null ? GENESIS : previous.hash();
+
+        // ringewashere
+        Instant normalizedAt = at.truncatedTo(ChronoUnit.MICROS);
+
         String safeDetails = details == null ? "" : details;
-        String hash = hash(sequence, exceptionId, action, actor, at, safeDetails, previousHash);
-        return new AuditEntry(sequence, exceptionId, action, actor, at, safeDetails, previousHash, hash);
+
+        String hash = hash(sequence, exceptionId, action, actor,
+                normalizedAt, safeDetails, previousHash);
+
+        return new AuditEntry(sequence, exceptionId, action, actor,
+                normalizedAt, safeDetails, previousHash, hash);
     }
 
     /**
