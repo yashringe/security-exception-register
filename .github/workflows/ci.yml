@@ -22,7 +22,7 @@ jobs:
         run: mvn -B verify
       - name: Upload coverage report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: jacoco-report
           path: target/site/jacoco
@@ -56,7 +56,7 @@ jobs:
           pip install -r requirements.txt
           python seed_demo.py --url http://localhost:8080
           python kri_report.py --url http://localhost:8080 --out report.html || echo "red KRIs present (expected with demo data)"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: kri-report
           path: tools/kri_report/report.html
